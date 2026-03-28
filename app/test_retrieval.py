@@ -37,7 +37,8 @@ def main():
     print(f"\n=== query ===\n{query}")
 
     results = retriever.retrieve(query, top_k=3)
-
+    #sgkrutrd
+    #测试脚本git commit -m "
     # 7. 打印检索结果
     print("\n=== retrieved chunks ===")
     for idx, item in enumerate(results, start=1):
