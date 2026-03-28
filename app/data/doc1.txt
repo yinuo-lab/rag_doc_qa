@@ -1,0 +1,2 @@
+FastAPI is a modern Python web framework for building APIs quickly.
+It supports dependency injection, async programming, and automatic docs.
