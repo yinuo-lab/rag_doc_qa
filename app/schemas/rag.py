@@ -10,7 +10,9 @@ class Chunk(BaseModel):
     source: str
     chunk_id: int
     text: str
-
+class SourceItem(BaseModel):
+    source: str
+    chunk_id: int
 
 class RetrievedChunk(BaseModel):
     source: str
@@ -22,7 +24,6 @@ class RetrievedChunk(BaseModel):
 class AskRequest(BaseModel):
     query: str
 
-
 class AskResponse(BaseModel):
     answer: str
-    sources: list[dict]
+    sources: list[SourceItem]

@@ -1,5 +1,7 @@
 from math import sqrt
 
+import numpy as np
+
 from app.schemas.rag import Chunk, RetrievedChunk
 
 
@@ -32,7 +34,7 @@ class InMemoryVectorStore:
         if query_norm == 0:
             return []
 
-        retrieved_chunks: list[RetrievedChunk] = []
+        retrieved_chunks = []
 
         for chunk, embedding in self.records:
             if len(embedding) != len(query_embedding):
@@ -47,8 +49,7 @@ class InMemoryVectorStore:
                 continue
 
             dot = 0.0
-            for q, e in zip(query_embedding, embedding):
-                dot += q * e
+            dot=np.dot(query_embedding,embedding)
 
             score = dot / (query_norm * emb_norm)
 

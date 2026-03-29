@@ -12,7 +12,6 @@ def split_text(text: str, chunk_size: int = 200, overlap: int = 50) -> list[str]
     chunks = []
     text_length = len(text)
     start = 0
-    print("fsdgrth")
     while start < text_length:
         ideal_end = min(start + chunk_size, text_length)
         end = ideal_end
