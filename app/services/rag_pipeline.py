@@ -18,5 +18,5 @@ class RAGPipeline:
         answer = self.llm_client.generate(prompt)
         sources=[]
         for i in reranked:
-            sources.append(SourceItem(source=i.source,chunk_id=i.chunk_id))
+            sources.append(SourceItem(source=i.source,chunk_id=i.chunk_id,doc_id=i.doc_id))
         return AskResponse(answer=answer,sources=sources)

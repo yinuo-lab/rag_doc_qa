@@ -59,10 +59,13 @@ def split_documents(documents: list[Document], chunk_size: int = 200, overlap: i
             chunk_1=Chunk(
                 source= doc.source,
                 chunk_id=idx,
-                text=chunk
+                text=chunk,
+                doc_id=doc.doc_id
             )
             all_chunks.append(
               chunk_1
             )
 
     return all_chunks
+
+

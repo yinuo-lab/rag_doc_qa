@@ -59,6 +59,7 @@ class InMemoryVectorStore:
                     chunk_id=chunk.chunk_id,
                     text=chunk.text,
                     score=score,
+                    doc_id=chunk.doc_id,
                 )
             )
 
