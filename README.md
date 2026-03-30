@@ -38,8 +38,10 @@ app/
 ├─ data/
 │  └─ ...
 └─ main.py
+```
 
-System Flow
+## ##System Flow
+
 documents
 -> loader
 -> chunker
@@ -52,7 +54,9 @@ query
 -> prompt_builder
 -> llm
 -> answer + sources
-技术栈
+
+## 技术栈
+
 Python
 FastAPI
 Ollama
@@ -60,7 +64,9 @@ Local LLM
 RAG
 In-memory vector store
 Pydantic
-运行
+
+## 运行
+
 1. Create and activate virtual environment
 python -m venv .venv
 2. Install dependencies
@@ -68,7 +74,7 @@ python -m pip install -r requirements.txt
 3. Start Ollama and prepare a local model
 ollama run llama3
 
-或其他本地模型，例如：
+## 或其他本地模型，例如：
 
 ollama run qwen2.5:3b
 4. Start FastAPI
@@ -76,21 +82,49 @@ python -m uvicorn app.main:app --reload
 5. Open docs
 http://127.0.0.1:8000/docs
 API Example
-Request
+
+## 运行测试：
 {
-  "query": "What are the steps of a typical RAG pipeline?"
+  "query": "谁是美国总统?"
 }
-Response
+
 {
-  "answer": "...",
+  "answer": "不知道。提供的资料中没有关于美国总统的信息。",
   "sources": [
     {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
       "source": "doc2.md",
-      "chunk_id": 1
+      "doc_id": "doc2.md",
+      "chunk_id": 0
     }
   ]
 }
-现状
+{
+  "query": "Fastapi支持什么?"
+}
+{
+  "answer": "FastAPI支持依赖注入、异步编程和自动文档。",
+  "sources": [
+    {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
+      "source": "doc2.md",
+      "doc_id": "doc2.md",
+      "chunk_id": 0
+    }
+  ]
+}
+
+
+## 现状
+
  文档读取
  chunk 切分
  embedding
@@ -101,9 +135,26 @@ Response
  本地持久化索引
  更强的 reranker
  更完整的 README 演示截图
-未来工作
+
+## 未来工作
+
 增加 chunk / index 本地持久化
 支持文档增量更新
 优化 reranking 逻辑
 支持更多文档格式
 增加 Docker 部署
+
+## 关于这个项目
+
+这个项目的目标不是简单调用大模型 API，而是实现一个具备基本工程结构的本地 RAG 系统，包括：
+
+- 本地文档管理
+- 本地索引同步
+- 检索与重排
+- 本地模型接入
+- API 服务封装
+
+它更接近一个可以继续扩展的 AI 应用工程项目，而不是单纯的实验脚本。
+
+
+---
