@@ -13,14 +13,12 @@ class RAGPipeline:
 
     def ask(self, query: str) -> AskResponse:
         retrieved = self.retriever.retrieve(query, top_k=10)
-        reranked = self.reranker.rerank(query, retrieved, top_n=3)
+        reranked = self.reranker.rerank(query, retrieved, top_n=1)
         prompt = build_prompt(query, reranked)
         answer = self.llm_client.generate(prompt)
         filtered_chunks = []
         pasted = {}
         for item in reranked:
-            if item.score <= 0:
-                continue
             if item.doc_id in pasted:
                 continue
             pasted[item.doc_id] = 1

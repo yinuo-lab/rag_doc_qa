@@ -16,7 +16,7 @@ def build_pipeline() -> RAGPipeline:
     INDEX_DIR=BASE_DIR/'index'
     chunks =sync_index(str(DATA_DIR),str(INDEX_DIR))
 
-    embedder = BiEncoderEmbedder(dim=64)
+    embedder = BiEncoderEmbedder(model="qwen3-embedding:0.6b-fp16")
     vector_store = InMemoryVectorStore()
 
     chunk_texts = [chunk.text for chunk in chunks]

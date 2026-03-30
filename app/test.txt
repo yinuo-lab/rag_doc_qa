@@ -105,3 +105,22 @@ Internal Server Error
     }
   ]
 }
+
+
+{"query": "沈砚去旧书店是为了什么？"}
+
+{
+  "answer": "沈砚去旧书店是为了确认一件事：三年前寄来的那封没有署名的信，里面提到的“南窗第三层，左数第二本”，到底是不是一句故意留下来的谜语。",
+  "sources": [
+    {
+      "source": "novel_excerpt.txt",
+      "doc_id": "misc/novel_excerpt.txt",
+      "chunk_id": 1
+    },
+    {
+      "source": "api_spec.md",
+      "doc_id": "project/api_spec.md",
+      "chunk_id": 21
+    }
+  ]
+}
