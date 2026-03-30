@@ -11,7 +11,10 @@ from app.services.rag_pipeline import RAGPipeline
 from functools import lru_cache
 from app.services.index_store import  sync_index
 def build_pipeline() -> RAGPipeline:
-    chunks =sync_index()
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    DATA_DIR = BASE_DIR / "data"
+    INDEX_DIR=BASE_DIR/'index'
+    chunks =sync_index(str(DATA_DIR),str(INDEX_DIR))
 
     embedder = BiEncoderEmbedder(dim=64)
     vector_store = InMemoryVectorStore()

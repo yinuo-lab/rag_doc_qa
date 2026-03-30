@@ -16,7 +16,22 @@ class RAGPipeline:
         reranked = self.reranker.rerank(query, retrieved, top_n=3)
         prompt = build_prompt(query, reranked)
         answer = self.llm_client.generate(prompt)
-        sources=[]
-        for i in reranked:
-            sources.append(SourceItem(source=i.source,chunk_id=i.chunk_id,doc_id=i.doc_id))
+        filtered_chunks = []
+        pasted = {}
+        for item in reranked:
+            if item.score <= 0:
+                continue
+            if item.doc_id in pasted:
+                continue
+            pasted[item.doc_id] = 1
+            filtered_chunks.append(item)
+        sources = []
+        for item in filtered_chunks:
+            sources.append(
+                SourceItem(
+                    source=item.source,
+                    doc_id=item.doc_id,
+                    chunk_id=item.chunk_id,
+                )
+            )
         return AskResponse(answer=answer,sources=sources)

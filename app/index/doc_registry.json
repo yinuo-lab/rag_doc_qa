@@ -1,0 +1,80 @@
+{
+  "doc1.txt": {
+    "doc_id": "doc1.txt",
+    "source": "doc1.txt",
+    "content_hash": "0b55929a2daa7e34c7ee94e2d6acf8aaf4fb20317ebd7de67d5a26dfab7b651f",
+    "chunk_count": 1
+  },
+  "doc2.md": {
+    "doc_id": "doc2.md",
+    "source": "doc2.md",
+    "content_hash": "c462e048277ad8221083bbccaaf285cc33964cc1abd42de3079ac8e7f3a3df1d",
+    "chunk_count": 1
+  },
+  "business/incident_policy.md": {
+    "doc_id": "business/incident_policy.md",
+    "source": "incident_policy.md",
+    "content_hash": "6343c030a1bcc42ec954c8ea38ee1761524714164a94aec7f215c51bf062501c",
+    "chunk_count": 6
+  },
+  "business/role_policy.md": {
+    "doc_id": "business/role_policy.md",
+    "source": "role_policy.md",
+    "content_hash": "b7ec8e53e38ff69ba44997c9db991c3674d3db003a4dfc93171e4d1b71ce8b65",
+    "chunk_count": 6
+  },
+  "misc/novel_excerpt.txt": {
+    "doc_id": "misc/novel_excerpt.txt",
+    "source": "novel_excerpt.txt",
+    "content_hash": "2670018d5531344012a1ae51d8b439ad2ae4deb2bb7b184f33b6d9982574885c",
+    "chunk_count": 2
+  },
+  "misc/travel_notes.md": {
+    "doc_id": "misc/travel_notes.md",
+    "source": "travel_notes.md",
+    "content_hash": "a3571779995a7e98e95e4fb58d7d67d8c22907cb62b85d8a0b65961eba822311",
+    "chunk_count": 1
+  },
+  "project/api_spec.md": {
+    "doc_id": "project/api_spec.md",
+    "source": "api_spec.md",
+    "content_hash": "7b641524f1b31124e69101b0e75de4b0026362b7e11a583078b10ef288b39f9d",
+    "chunk_count": 22
+  },
+  "project/architecture.md": {
+    "doc_id": "project/architecture.md",
+    "source": "architecture.md",
+    "content_hash": "87ee3933b482c92950fb115c5ba5760b5530125304b3aad5e4ad5bf797d2fe5a",
+    "chunk_count": 12
+  },
+  "project/deployment_notes.md": {
+    "doc_id": "project/deployment_notes.md",
+    "source": "deployment_notes.md",
+    "content_hash": "9819d8ac857677fe68b67e02dd6b051358c0803c5a903824a885c5f145ecf932",
+    "chunk_count": 9
+  },
+  "project/index_sync.md": {
+    "doc_id": "project/index_sync.md",
+    "source": "index_sync.md",
+    "content_hash": "ec550f4a84b44fc358dca034ac6eaa94ffa395e1e73a18e80737c26a74e9d582",
+    "chunk_count": 12
+  },
+  "project/overview.md": {
+    "doc_id": "project/overview.md",
+    "source": "overview.md",
+    "content_hash": "e49546625c77d9b664b2a1820525fda353e6a89eb287727c9bbbb389450cf594",
+    "chunk_count": 10
+  },
+  "project/retrieval_rules.md": {
+    "doc_id": "project/retrieval_rules.md",
+    "source": "retrieval_rules.md",
+    "content_hash": "c359d1751e0a7cf7f3f320d00d1bd4ec642b62977cb865cea903526bcf721fda",
+    "chunk_count": 10
+  },
+  "rag/intro.md": {
+    "doc_id": "rag/intro.md",
+    "source": "intro.md",
+    "content_hash": "547b29bb6eb0dfd53f08d2f2023864c6126aac5f686624df9d9263774149416a",
+    "chunk_count": 2
+  }
+}

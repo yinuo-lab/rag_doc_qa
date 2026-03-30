@@ -14,12 +14,26 @@ class LLMClient:
         if not prompt:
             return "没有找到足够的资料来回答这个问题。"
 
-        response = self.client.responses.create(
-            model=self.model,
-            input=prompt,
-        )
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                reasoning_effort="none",
+                max_tokens=512,
+            )
 
-        answer = (response.output_text or "").strip()
-        if not answer:
-            return "模型没有返回可见文本。"
-        return answer
+            answer = response.choices[0].message.content
+            if answer is None:
+                return "模型没有返回可见文本。"
+
+            answer = answer.strip()
+            if not answer:
+                return "模型没有返回可见文本。"
+
+            return answer
+
+        except Exception as e:
+            print("LLM call failed:", repr(e))
+            raise

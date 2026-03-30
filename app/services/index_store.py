@@ -78,11 +78,11 @@ def save_chunk(index_dir:str,Chunks:list[Chunk]):
             f.write(json.dumps(chunk.model_dump(), ensure_ascii=False) + "\n")
 
 
-def sync_index()->list[Chunk]:
-    path="app/data"
-    index_dir = "app/data/index"
+def sync_index(data_dir: str, index_dir: str="app/data/index")->list[Chunk]:
+    #path="app/data"
+    #index_dir = "app/data/index"
     docRegistryItems=load_doc_registry(index_dir)
-    documents=load_documents(path)
+    documents=load_documents(data_dir)
     old_chunks=load_chunk(index_dir)
     change=[]
     delete=[]
