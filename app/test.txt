@@ -1,0 +1,107 @@
+{
+  "query": "What are the steps of a typical RAG pipeline?"
+}
+
+{
+  "answer": "根据资料2，典型RAG管道的步骤如下：\n1. Load documents（加载文档）\n2. Split into chunks（拆分块）\n3. Embed chunks（嵌入块）\n4. Retrieve relevant chunks（检索相关块）\n5. Generate answer（生成答案）",
+  "sources": [
+    {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
+      "source": "doc2.md",
+      "doc_id": "doc2.md",
+      "chunk_id": 0
+    }
+  ]
+}
+{
+  "query": "Fastapi支持什么?"
+}
+{
+  "answer": "FastAPI支持依赖注入、异步编程和自动文档。",
+  "sources": [
+    {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
+      "source": "doc2.md",
+      "doc_id": "doc2.md",
+      "chunk_id": 0
+    }
+  ]
+}
+
+{
+  "query": "Which source mentions Retrieval-Augmented Generation?"
+}
+
+{
+  "answer": "资料2（source=doc2.md, chunk_id=0）提到Retrieval-Augmented Generation（RAG），并解释了其含义及典型流程。",
+  "sources": [
+    {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
+      "source": "doc2.md",
+      "doc_id": "doc2.md",
+      "chunk_id": 0
+    }
+  ]
+}
+
+{
+  "query": ""
+}
+Internal Server Error
+
+{
+  "query": "     "
+}
+
+Internal Server Error
+
+{
+  "query": "Which source discusses dependency injection?"
+}
+
+{
+  "answer": "The source that discusses dependency injection is **资料1 (doc1.txt, chunk_id=0)**. It mentions that FastAPI supports dependency injection as one of its features.",
+  "sources": [
+    {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
+      "source": "doc2.md",
+      "doc_id": "doc2.md",
+      "chunk_id": 0
+    }
+  ]
+}
+{
+  "query": "谁是美国总统?"
+}
+
+{
+  "answer": "不知道。提供的资料中没有关于美国总统的信息。",
+  "sources": [
+    {
+      "source": "doc1.txt",
+      "doc_id": "doc1.txt",
+      "chunk_id": 0
+    },
+    {
+      "source": "doc2.md",
+      "doc_id": "doc2.md",
+      "chunk_id": 0
+    }
+  ]
+}

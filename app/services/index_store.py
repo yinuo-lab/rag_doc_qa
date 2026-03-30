@@ -23,8 +23,13 @@ def load_doc_registry(index_dir:str)->dict[str,DocRegistryItem]:
     if not path.exists():
         return {}
     Registrys={}
-    with path.open('r',encoding="utf-8")as f:
-        temp=json.load(f)
+    with path.open("r", encoding="utf-8") as f:
+        content = f.read().strip()
+
+    if not content:
+        return {}
+
+    temp = json.loads(content)
     for chunk,item in  temp.items():
         Registrys[chunk]=DocRegistryItem(**item)
     return Registrys
@@ -48,12 +53,18 @@ def load_chunk(index_dir:str)->list[Chunk]:
     if not path.exists():
         return []
     Chunks=[]
+
     with path.open('r',encoding="utf-8")as f:
         for line in f:
             line=line.strip()
             if not line:
                 continue
-            Chunks.append(Chunk(**json.loads(line)))
+            item = json.loads(line)
+
+            if not item:
+                continue
+
+            Chunks.append(Chunk(**item))
     return Chunks
 
 def save_chunk(index_dir:str,Chunks:list[Chunk]):
@@ -67,7 +78,7 @@ def save_chunk(index_dir:str,Chunks:list[Chunk]):
             f.write(json.dumps(chunk.model_dump(), ensure_ascii=False) + "\n")
 
 
-def sync_index():
+def sync_index()->list[Chunk]:
     path="app/data"
     index_dir = "app/data/index"
     docRegistryItems=load_doc_registry(index_dir)
@@ -126,3 +137,4 @@ def sync_index():
 
     save_doc_registry(index_dir,doc_registry)
     save_chunk(index_dir,old_chunks)
+    return old_chunks

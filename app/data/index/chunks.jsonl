@@ -1,0 +1,2 @@
+{"doc_id": "doc1.txt", "source": "doc1.txt", "chunk_id": 0, "text": "FastAPI is a modern Python web framework for building APIs quickly.\nIt supports dependency injection, async programming, and automatic docs."}
+{"doc_id": "doc2.md", "source": "doc2.md", "chunk_id": 0, "text": "# RAG\n\nRAG means Retrieval-Augmented Generation.\n\nA typical RAG pipeline includes:\n1. Load documents\n2. Split into chunks\n3. Embed chunks\n4. Retrieve relevant chunks\n5. Generate answer"}

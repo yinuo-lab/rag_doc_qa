@@ -9,13 +9,9 @@ from app.services.reranker import Reranker
 from app.services.llm import LLMClient
 from app.services.rag_pipeline import RAGPipeline
 from functools import lru_cache
-
+from app.services.index_store import  sync_index
 def build_pipeline() -> RAGPipeline:
-    base_dir = Path(__file__).resolve().parent.parent
-    data_dir = base_dir / "data"
-
-    documents = load_documents(str(data_dir))
-    chunks = split_documents(documents, chunk_size=80, overlap=20)
+    chunks =sync_index()
 
     embedder = BiEncoderEmbedder(dim=64)
     vector_store = InMemoryVectorStore()

@@ -1,23 +1,13 @@
-# app/services/llm.py
 from openai import OpenAI
-
-from app.core.config import settings
 
 
 class LLMClient:
-    def __init__(self):
-        if not settings.openai_api_key:
-            raise ValueError("OPENAI_API_KEY is missing")
-
-        if settings.openai_base_url:
-            self.client = OpenAI(
-                api_key=settings.openai_api_key,
-                base_url=settings.openai_base_url,
-            )
-        else:
-            self.client = OpenAI(api_key=settings.openai_api_key)
-
-        self.model = settings.openai_model
+    def __init__(self, model: str = "qwen3:8b"):
+        self.client = OpenAI(
+            base_url="http://localhost:11434/v1/",
+            api_key="ollama",
+        )
+        self.model = model
 
     def generate(self, prompt: str) -> str:
         prompt = prompt.strip()
