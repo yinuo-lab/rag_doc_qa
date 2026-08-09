@@ -1,6 +1,5 @@
 from app.schemas.rag import RetrievedChunk
 from app.services.embedder import BiEncoderEmbedder
-from app.services.vector_store import InMemoryVectorStore
 
 
 class Reranker:
@@ -8,10 +7,8 @@ class Reranker:
         self
     ):
         self.embedder = BiEncoderEmbedder()
-        self.vector_store = InMemoryVectorStore()
 
     def rerank(self, query: str, chunks: list[RetrievedChunk], top_n: int = 3) -> list[RetrievedChunk]:
-        ...
         query = query.strip()
         if not query:
             raise ValueError("query cannot be empty")
