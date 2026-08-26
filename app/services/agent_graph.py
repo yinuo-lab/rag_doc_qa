@@ -165,14 +165,14 @@ class DocumentAgent:
         return graph.compile()#编译状态图，让它变成可以执行的图
 
     def _model_node(self, state: AgentState) -> dict[str, Any]:
-        # 工具异常直接终止；资料不足时允许模型在剩余次数内改写查询重试。
+        # 工具异常直接终止；
         tool_result = state["tool_result"]
         if tool_result is not None and tool_result.error:
             return {
                 "answer": tool_result.message,
                 "stop_reason": "tool_error",
             }
-        needs_retry = tool_result is not None and not tool_result.has_enough_context
+        needs_retry = tool_result is not None and not tool_result.has_enough_context#资料不足时允许模型在剩余次数内改写查询重试。
         if needs_retry and state["step"] >= state["max_steps"]:
             return {
                 "answer": tool_result.message,
