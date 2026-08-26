@@ -10,6 +10,7 @@ from app.services.llm import LLMClient
 from app.services.rag_pipeline import RAGPipeline
 from functools import lru_cache
 from app.services.index_store import  sync_index
+from app.services.embedding_cache import build_or_reuse_embeddings
 def build_pipeline() -> RAGPipeline:
     BASE_DIR = Path(__file__).resolve().parent.parent
     DATA_DIR = BASE_DIR / "data"
@@ -19,8 +20,11 @@ def build_pipeline() -> RAGPipeline:
     embedder = BiEncoderEmbedder(model="qwen3-embedding:0.6b-fp16")
     vector_store = InMemoryVectorStore()
 
-    chunk_texts = [chunk.text for chunk in chunks]
-    embeddings = embedder.embed_texts(chunk_texts)
+    embeddings = build_or_reuse_embeddings(
+        chunks=chunks,
+        embedder=embedder,
+        cache_path=INDEX_DIR / "embeddings.json",
+    )
     vector_store.add_chunks(chunks, embeddings)
 
     retriever = Retriever(embedder=embedder, vector_store=vector_store)

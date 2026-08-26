@@ -19,7 +19,7 @@ def main():
         print(f"source={chunk.source}, chunk_id={chunk.chunk_id}, text={chunk.text!r}")
 
     # 3. 初始化 embedder / vector store / retriever
-    embedder = BiEncoderEmbedder(dim=64)
+    embedder = BiEncoderEmbedder(model="qwen3-embedding:0.6b-fp16")
     vector_store = InMemoryVectorStore()
     retriever = Retriever(embedder=embedder, vector_store=vector_store)
 
@@ -37,8 +37,6 @@ def main():
     print(f"\n=== query ===\n{query}")
 
     results = retriever.retrieve(query, top_k=3)
-    #sgkrutrd
-    #测试脚本git commit -m "
     # 7. 打印检索结果
     print("\n=== retrieved chunks ===")
     for idx, item in enumerate(results, start=1):

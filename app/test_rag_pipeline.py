@@ -12,7 +12,7 @@ def main():
     documents = load_documents("app/data")
     chunks = split_documents(documents, chunk_size=80, overlap=20)
 
-    embedder = BiEncoderEmbedder(dim=64)
+    embedder = BiEncoderEmbedder(model="qwen3-embedding:0.6b-fp16")
     vector_store = InMemoryVectorStore()
     retriever = Retriever(embedder=embedder, vector_store=vector_store)
     reranker = Reranker()
